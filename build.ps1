@@ -20,7 +20,7 @@ $csc = 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 if (-not (Test-Path $csc)) { $csc = 'C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe' }
 if (-not (Test-Path $csc)) { Write-Host 'csc.exe not found'; exit 1 }
 
-$srcs = Get-ChildItem -Path $here -Filter '*.cs' | ForEach-Object { $_.FullName }
+$srcs = Get-ChildItem -Path (Join-Path $here 'src') -Filter '*.cs' | ForEach-Object { $_.FullName }
 & $csc /nologo /target:winexe /platform:anycpu /optimize+ "/out:$exe" `
     /r:System.dll /r:System.Core.dll /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Web.Extensions.dll `
     "/win32icon:$(Join-Path $here 'app.ico')" `
