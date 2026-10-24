@@ -154,9 +154,9 @@ namespace Life4Up
             }
             TextRenderer.DrawText(g, msg, smallFont, new Rectangle(14, msgY, 148, 18),
                 Color.FromArgb(226, 226, 238), TextFormatFlags.EndEllipsis | TextFormatFlags.VerticalCenter);
-            if (s.Streak > 0)
-                TextRenderer.DrawText(g, "连击 x" + s.Streak, smallFont, new Rectangle(160, msgY, 72, 18),
-                    Color.FromArgb(255, 176, 64), TextFormatFlags.Right | TextFormatFlags.VerticalCenter);
+            TextRenderer.DrawText(g, "连击 x" + s.Streak, smallFont, new Rectangle(160, msgY, 72, 18),
+                s.Streak > 0 ? Color.FromArgb(255, 176, 64) : Color.FromArgb(96, 96, 112),
+                TextFormatFlags.Right | TextFormatFlags.VerticalCenter);
         }
 
         static Pen PenBorder() { return new Pen(Color.FromArgb(200, 200, 215), 1.6f); }

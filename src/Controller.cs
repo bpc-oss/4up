@@ -159,7 +159,7 @@ namespace Life4Up
             }
             if (!restNow && state.Resting) state.Resting = false;
             if (!restNow && !paused) state.Work(1);
-            if (state.Rollover()) { tray.Update(state); Store.Save(state, panel.Location); }
+            if (state.Rollover()) { Program.Trace("rollover -> streak=" + state.Streak); tray.Update(state); Store.Save(state, panel.Location); }
             foreach (Gauge g in state.Gauges)
             {
                 if (g.Level <= 0.0)
